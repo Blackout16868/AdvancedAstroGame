@@ -7,8 +7,10 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject playerCamera;
     public GameObject playerWeapon;
+    public float damage = 5f;
     public float coolDown = 0.66f;
     private float timer = 0f;
+    
 
 
     // Update is called once per frame
@@ -32,5 +34,9 @@ public class Weapon : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("LaserPew");
 
       }
+    }
+
+    public float getDamage(){
+      return damage;
     }
   }
