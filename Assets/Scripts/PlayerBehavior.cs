@@ -51,7 +51,20 @@ public class PlayerBehavior : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+    }
 
+    void Update()
+    {
+        MyInput();
+        SpeedControl();
+        StateHandler();
+
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
+        
+        if (grounded)
+            rb.drag = groundDrag;
+        else
+            rb.drag = airDrag;
     }
 
     void MyInput()
@@ -92,8 +105,6 @@ public class PlayerBehavior : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         else if(!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-
-
     }
 
     void SpeedControl()
@@ -122,21 +133,5 @@ public class PlayerBehavior : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        MyInput();
-        SpeedControl();
-        StateHandler();
-
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.2f, ground);
-        
-        if (grounded)
-            rb.drag = groundDrag;
-        else
-            rb.drag = airDrag;
-        
     }
 }
