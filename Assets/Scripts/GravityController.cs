@@ -9,5 +9,7 @@ public class GravityController : MonoBehaviour
     void Start()
     {
      Physics.gravity = new Vector3(0f, Gravity, 0f);
+
+     Application.targetFrameRate = 60;
     }
 }
