@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ab2b545cc34ee419e4ba7a110f03e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3389230869280713061, guid: ee0c4bb0cc278e14a8d8d96940838c2f, type: 3}
+  bulletPrefab: {fileID: 6414155897766798497, guid: 208fc00e46376ce4fb71cadf402c6b38, type: 3}
   playerCamera: {fileID: 3524477721156033155}
   playerWeapon: {fileID: 3524477721436846842}
   coolDown: 0.66
