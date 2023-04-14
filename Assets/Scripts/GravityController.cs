@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GravityController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float Gravity;
+
     void Start()
     {
-     Physics.gravity = new Vector3(0f, -0.62f, 0f);
+     Physics.gravity = new Vector3(0f, Gravity, 0f);
     }
 }
