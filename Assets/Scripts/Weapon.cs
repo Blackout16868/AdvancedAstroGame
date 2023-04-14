@@ -21,13 +21,15 @@ public class Weapon : MonoBehaviour
         }
 
         
-        if (Input.GetMouseButton(0)&&timer<=0f)
+        if (Input.GetMouseButton(0)&&timer<=0f && !PauseMenu.GamePaused)
         {
         GameObject bulletObject = Instantiate (bulletPrefab);
         bulletObject.transform.position = playerWeapon.transform.position+playerCamera.transform.forward;
         bulletObject.transform.forward = playerCamera.transform.forward;
 
         timer = coolDown;
+
+        FindObjectOfType<AudioManager>().Play("LaserPew");
 
       }
     }
