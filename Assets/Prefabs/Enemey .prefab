@@ -194,8 +194,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0150304, y: 1, z: 0.96185637}
-  m_Center: {x: -0.0064907074, y: 0, z: -0.0014703274}
+  m_Size: {x: 1.0371408, y: 1, z: 1.0159968}
+  m_Center: {x: -0.0067181587, y: 0, z: -0.006884396}
 --- !u!114 &1595135118364429611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,10 +214,10 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 0
-  playerOBJ: {fileID: 0}
   center: {fileID: 0}
   vision: 10
   speed: 1
+  playerPos: {fileID: 0}
 --- !u!114 &1749037395998724391
 MonoBehaviour:
   m_ObjectHideFlags: 0
