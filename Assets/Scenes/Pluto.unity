@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: coolDown
-      value: 0.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: fireSpeed
@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 1711011206}
     - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: overHeatCoolDown
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846847, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
