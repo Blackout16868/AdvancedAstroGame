@@ -85,16 +85,20 @@ public class Weapon : MonoBehaviour
         {
           if (run){
           timer3 = overHeatCoolDown;
-        }
           run = false;
+          return;
+        }
+          
           if (timer3>0)
           {
             timer3 -= Time.deltaTime;
             curTemp -= (Time.deltaTime * (maxTemp/overHeatCoolDown));
+            return;
           }
           if (timer3 <= 0 && !run){
           curTemp = 0;
           run = true;
+          return;
           }
         }
     }
