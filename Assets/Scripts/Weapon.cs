@@ -12,103 +12,94 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject playerCamera;
     public GameObject playerWeapon;
-    public float overHeatCoolDown = 100f;
-    public float damage = 5f;
-    public float coolDown = 0.66f;
-    public float maxTemp = 100f;
-    private float minTemp = 23f;
-    private float curTemp;
-    private float timer = 0f;
-    private float timer2 = 0f;
-    private float timer3 = 0f;
+    public float overHeatCoolDown;
+    public float damage;
+    public float coolDown;
+    public float fireSpeed;
+    public float maxTemp;
+    private float minTemp;
+    public float curTemp;
+    private float timer1;
+    private float timer2;
+    private float timer3;
     private bool run = true;
     
 
     void Start(){
       curTemp = minTemp;
-      setWeaponText();
     }
     // Update is called once per frame
     void Update()
     {
-      if (curTemp>=maxTemp)
-        {
-          timer3 = overHeatCoolDown;
-          run = false;
-          curTemp = minTemp;
-        }
+      checkOverHeat();
 
-        if (!run && timer3<=0){
-          setWeaponText();
-          run = true;
-          
-        }
-        if (timer3 > 0f)
-        {
-          timer3 --;
-          return;
-        }
-
-        if (timer > 0f)
-        {
-
-            timer -= Time.deltaTime; 
-            
-        }
-
-        if (timer2 > 0f)
-        {
-          timer2 -= Time.deltaTime;
-        }
-
-
-
-        if (run)
-        {        
-        if (Input.GetMouseButton(0)&&timer<=0f && !PauseMenu.GamePaused)
-        {
-       fire();
-      } 
-      
-      else if (!(Input.GetMouseButton(0))&&timer2<=0f && !PauseMenu.GamePaused&&curTemp>minTemp)
+      if (timer1 > 0f)
       {
-       decreaseHeat();
+        timer1 -= Time.deltaTime; 
       }
 
-    }
+      if (timer2 > 0f)
+      {
+        timer2 -= Time.deltaTime;
+      }
+
+      if (run)
+      {        
+        if (Input.GetMouseButton(0) && timer1<=0f && timer3<=0 && !PauseMenu.GamePaused)
+        {
+          fire();
+        } 
+      
+        else if (!(Input.GetMouseButton(0)) && timer2<=0f && timer3<=0 && !PauseMenu.GamePaused && curTemp>minTemp)
+        {
+          decreaseHeat();
+        }
+      }
     }
 
     public float getDamage(){
       return damage;
     }
 
-    public void setWeaponText()
-    {
-      weaponText.text = "Laser Heat: "+(curTemp)+"°/"+(maxTemp)+"°";
+    public float getCurTemp(){
+      return curTemp;
     }
-  
 
     public void fire(){
          GameObject bulletObject = Instantiate (bulletPrefab);
         bulletObject.transform.position = playerWeapon.transform.position+playerCamera.transform.forward;
         bulletObject.transform.forward = playerCamera.transform.forward;
 
-        timer = coolDown;
+        timer1 = fireSpeed;
         timer2 = coolDown;
         
         FindObjectOfType<AudioManager>().Play("LaserPew");
         curTemp += Mathf.Round(Random.Range(1f,10f));
-        setWeaponText();
     }
 
     public void decreaseHeat()
     {
-       curTemp -= 6;
+       curTemp -= 5;
        if (curTemp<0){
         curTemp = 0;
        }
-        setWeaponText();
         timer2 = coolDown;
+    }
+
+    public void checkOverHeat()
+    {
+      if (curTemp>=maxTemp)
+        {
+          timer3 = overHeatCoolDown;
+          run = false;
+          while (timer3>0)
+          {
+            timer3 -= Time.deltaTime;
+            curTemp -= (Time.deltaTime * (maxTemp/overHeatCoolDown));
+          }
+          curTemp = 0;
+          run = true;
+        }
     }
     
   }
