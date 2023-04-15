@@ -98,5 +98,10 @@ public class Weapon : MonoBehaviour
           }
         }
     }
+
+    public bool getRun()
+    {
+      return run;
+    }
     
   }
