@@ -38,12 +38,12 @@ public class Weapon : MonoBehaviour
 
       if (run)
       {        
-        if (Input.GetMouseButton(0) && timer1<=0f && timer3<=0 && !PauseMenu.GamePaused)
+        if (Input.GetMouseButton(0) && timer1<=0 && timer3<=0 && !PauseMenu.GamePaused)
         {
           fire();
         } 
       
-        else if (!(Input.GetMouseButton(0)) && timer3<=0 && !PauseMenu.GamePaused && curTemp>minTemp)
+        else if (!(Input.GetMouseButton(0)) && timer1<=0 && timer3<=0 && !PauseMenu.GamePaused && curTemp>minTemp)
         {
           decreaseHeat();
         }
@@ -53,7 +53,9 @@ public class Weapon : MonoBehaviour
     public float getDamage(){
       return damage;
     }
-
+    public float getMaxTemp(){
+      return maxTemp;
+    }
     public float getCurTemp(){
       return curTemp;
     }
@@ -66,7 +68,7 @@ public class Weapon : MonoBehaviour
         timer1 = fireSpeed;
         
         FindObjectOfType<AudioManager>().Play("LaserPew");
-        curTemp += Mathf.Round(Random.Range(1f,10f));
+        curTemp += Mathf.Round(Random.Range(3f,7f));
     }
 
     public void decreaseHeat()
