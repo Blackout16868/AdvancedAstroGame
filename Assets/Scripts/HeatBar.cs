@@ -20,6 +20,7 @@ public class HeatBar : MonoBehaviour
     void Update()
     {
         current = Weapon.GetComponent<Weapon>().getCurTemp();
+        maximum = Weapon.GetComponent<Weapon>().getMaxTemp();
         GetCurrentFill();
     }
 

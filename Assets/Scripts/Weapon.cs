@@ -20,10 +20,8 @@ public class Weapon : MonoBehaviour
     private float minTemp;
     public float curTemp;
     private float timer1;
-    private float timer2;
     private float timer3;
     private bool run = true;
-    
 
     void Start(){
       curTemp = minTemp;
@@ -38,19 +36,14 @@ public class Weapon : MonoBehaviour
         timer1 -= Time.deltaTime; 
       }
 
-      if (timer2 > 0f)
-      {
-        timer2 -= Time.deltaTime;
-      }
-
       if (run)
       {        
-        if (Input.GetMouseButton(0) && timer1<=0f && timer3<=0 && !PauseMenu.GamePaused)
+        if (Input.GetMouseButton(0) && timer1<=0 && timer3<=0 && !PauseMenu.GamePaused)
         {
           fire();
         } 
       
-        else if (!(Input.GetMouseButton(0)) && timer2<=0f && timer3<=0 && !PauseMenu.GamePaused && curTemp>minTemp)
+        else if (!(Input.GetMouseButton(0)) && timer1<=0 && timer3<=0 && !PauseMenu.GamePaused && curTemp>minTemp)
         {
           decreaseHeat();
         }
@@ -60,7 +53,9 @@ public class Weapon : MonoBehaviour
     public float getDamage(){
       return damage;
     }
-
+    public float getMaxTemp(){
+      return maxTemp;
+    }
     public float getCurTemp(){
       return curTemp;
     }
@@ -71,34 +66,36 @@ public class Weapon : MonoBehaviour
         bulletObject.transform.forward = playerCamera.transform.forward;
 
         timer1 = fireSpeed;
-        timer2 = coolDown;
         
         FindObjectOfType<AudioManager>().Play("LaserPew");
-        curTemp += Mathf.Round(Random.Range(1f,10f));
+        curTemp += Mathf.Round(Random.Range(3f,7f));
     }
 
     public void decreaseHeat()
     {
-       curTemp -= 5;
+       curTemp -= (Time.deltaTime * (maxTemp/coolDown));
        if (curTemp<0){
         curTemp = 0;
        }
-        timer2 = coolDown;
     }
 
     public void checkOverHeat()
     {
-      if (curTemp>=maxTemp)
+     if (curTemp>=maxTemp||!run)
         {
+          if (run){
           timer3 = overHeatCoolDown;
+        }
           run = false;
-          while (timer3>0)
+          if (timer3>0)
           {
             timer3 -= Time.deltaTime;
             curTemp -= (Time.deltaTime * (maxTemp/overHeatCoolDown));
           }
+          if (timer3 <= 0 && !run){
           curTemp = 0;
           run = true;
+          }
         }
     }
     

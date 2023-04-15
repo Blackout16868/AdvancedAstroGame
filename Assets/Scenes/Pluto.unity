@@ -192,12 +192,16 @@ PrefabInstance:
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
+      propertyPath: maxTemp
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: coolDown
-      value: 0.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: fireSpeed
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: weaponText
@@ -205,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 1711011206}
     - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: overHeatCoolDown
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846847, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -443,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a093d0cbce45714d8ad157a9027541e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 100
+  maximum: 50
   current: 0
   mask: {fileID: 1229344771}
   Weapon: {fileID: 46389970}
