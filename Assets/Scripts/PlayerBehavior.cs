@@ -38,6 +38,9 @@ public class PlayerBehavior : MonoBehaviour
 
     public MovementState state;
 
+    public float maxAirTimeInFrames = 450f;
+    private float curTimeInair = 0f;
+
     public enum MovementState
     {
         walking,
@@ -78,6 +81,9 @@ public class PlayerBehavior : MonoBehaviour
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
+         jetpack();
+        
     }
 
     void StateHandler()
@@ -139,4 +145,26 @@ public class PlayerBehavior : MonoBehaviour
     {
         return moveDirection;
     }
+
+    void jetpack(){
+        if (curTimeInair<maxAirTimeInFrames&&!grounded&&Input.GetKey(jumpKey)){
+            rb.velocity = new Vector3(rb.velocity.x,1.1f, rb.velocity.z);
+            curTimeInair++;
+            Debug.Log(curTimeInair);
+            return;
+        }
+        if (grounded&curTimeInair>0f)
+        {
+            curTimeInair --;
+        }
+    }
+
+    public float getMaxAirtime(){
+        return maxAirTimeInFrames;
+    }
+
+    public float getCurAirtime(){
+        return curTimeInair;
+    }
 }
+
