@@ -118,7 +118,9 @@ MonoBehaviour:
   overHeatCoolDown: 100
   damage: 5
   coolDown: 0.66
+  fireSpeed: 0
   maxTemp: 100
+  curTemp: 0
 --- !u!1 &3524477719615513250
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +471,7 @@ GameObject:
   - component: {fileID: 3524477721391106490}
   - component: {fileID: 3524477721391106436}
   - component: {fileID: 3524477721391106489}
+  - component: {fileID: 5265462558021885560}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -538,6 +541,19 @@ MonoBehaviour:
     m_Bits: 8
   orientation: {fileID: 3524477720337244895}
   state: 0
+--- !u!114 &5265462558021885560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524477721391106437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a24c881b5b52b4ebc23eea4b11f7a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &3524477721402461567
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +705,9 @@ MonoBehaviour:
   overHeatCoolDown: 100
   damage: 5
   coolDown: 0.66
+  fireSpeed: 0
   maxTemp: 100
+  curTemp: 0
 --- !u!1 &4632797760268470600
 GameObject:
   m_ObjectHideFlags: 0

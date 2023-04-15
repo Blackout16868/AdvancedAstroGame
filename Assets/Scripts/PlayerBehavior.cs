@@ -134,4 +134,9 @@ public class PlayerBehavior : MonoBehaviour
     {
         MovePlayer();
     }
+
+    public Vector3 getMoveDiection()
+    {
+        return moveDirection;
+    }
 }
