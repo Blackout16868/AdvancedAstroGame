@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: fireSpeed
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846845, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: weaponText
@@ -985,6 +985,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1595135118364429611, guid: 927a3b40e233f2b44909bd3e03ace12f, type: 3}
+      propertyPath: center
+      value: 
+      objectReference: {fileID: 965416882}
     - target: {fileID: 1595135118364429623, guid: 927a3b40e233f2b44909bd3e03ace12f, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.4
@@ -999,6 +1003,11 @@ PrefabInstance:
       objectReference: {fileID: 46389970}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 927a3b40e233f2b44909bd3e03ace12f, type: 3}
+--- !u!4 &965416882 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7767495162353302540, guid: 927a3b40e233f2b44909bd3e03ace12f, type: 3}
+  m_PrefabInstance: {fileID: 854833513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1110077914
 GameObject:
   m_ObjectHideFlags: 0

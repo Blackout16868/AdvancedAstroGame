@@ -95,7 +95,7 @@ public class Weapon : MonoBehaviour
           while (timer3>0)
           {
             timer3 -= Time.deltaTime;
-            curTemp -= Time.deltaTime;
+            curTemp -= (Time.deltaTime * (maxTemp/overHeatCoolDown));
           }
           curTemp = 0;
           run = true;
