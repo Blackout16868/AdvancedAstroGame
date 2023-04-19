@@ -166,5 +166,9 @@ public class PlayerBehavior : MonoBehaviour
     public float getCurAirtime(){
         return curTimeInair;
     }
+
+    public float getPlayerHeight(){
+        return playerHeight;
+    }
 }
 
