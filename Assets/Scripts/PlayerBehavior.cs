@@ -40,6 +40,10 @@ public class PlayerBehavior : MonoBehaviour
 
     public float maxAirTimeInFrames = 450f;
     private float curTimeInair = 0f;
+    private float maxAirVelocity;
+    private float jetPackStartup = 10f;
+    private float currentStartup = 0f;
+    public float jetpackAcceleration = 0.5f;
 
     public enum MovementState
     {
@@ -54,6 +58,7 @@ public class PlayerBehavior : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+        maxAirVelocity = jumpForce;
     }
 
     void Update()
@@ -147,8 +152,16 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     void jetpack(){
-        if (curTimeInair<maxAirTimeInFrames&&!grounded&&Input.GetKey(jumpKey)){
-            rb.velocity = new Vector3(rb.velocity.x,1.1f, rb.velocity.z);
+
+        if (curTimeInair<maxAirTimeInFrames&&!grounded&&Input.GetKey(jumpKey)&&currentStartup>=jetPackStartup){
+
+            float upVelocity = rb.velocity.y+jetpackAcceleration;
+
+            if (upVelocity > maxAirVelocity){
+                upVelocity = maxAirVelocity;
+            }
+
+            rb.velocity = new Vector3(rb.velocity.x,upVelocity, rb.velocity.z);
             curTimeInair++;
             Debug.Log(curTimeInair);
             return;
@@ -156,6 +169,16 @@ public class PlayerBehavior : MonoBehaviour
         if (grounded&curTimeInair>0f)
         {
             curTimeInair --;
+            
+        }
+
+        if (grounded&&currentStartup!=0f)
+        {
+            currentStartup = 0f;
+        }
+
+        if (!grounded){
+            currentStartup ++;
         }
     }
 

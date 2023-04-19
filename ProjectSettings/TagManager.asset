@@ -7,6 +7,7 @@ TagManager:
   - EnemyBody
   - EnemyHead
   - Bullet
+  - Collect
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - ShipInside
   - 
   - 
   - 
