@@ -9,6 +9,7 @@ public class ItemCollector : MonoBehaviour
     [SerializeField] TMP_Text partsText;
     [SerializeField] GameObject[] partsList;
     [SerializeField] LayerMask ship;
+    [SerializeField] GameObject continueUi;
     private bool onShip = false;
     private float playerHeight;
     int parts = 0;
@@ -31,10 +32,9 @@ public class ItemCollector : MonoBehaviour
     private void Update() {
         
         if (inShip()&&hasAllParts()&&!onShip){
-          Debug.Log("Prompt UI");  
-          //TODO Make prompt UI
-          onShip = true;
-        }else if (onShip)
+        onShip = true;
+        continueUi.SetActive(true);
+        }else if (!inShip()&&onShip)
         {
             onShip = false;
         }
