@@ -415,7 +415,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721391106489, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: maxAirTimeInFrames
-      value: 450
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524477721391106489, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
+      propertyPath: jetpackAcceleration
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3524477721436846840, guid: c048bb15278c8f948a3b78e0ec7ddc3b, type: 3}
       propertyPath: m_Enabled

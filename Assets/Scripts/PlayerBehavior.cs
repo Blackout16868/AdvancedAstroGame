@@ -7,6 +7,7 @@ public class PlayerBehavior : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode poundKey = KeyCode.LeftControl;
 
     [Header("Movement")]
     private float moveSpeed;
@@ -21,6 +22,10 @@ public class PlayerBehavior : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
+
+    [Header("Ground Pound")]
+    public float poundSpeed;
+    bool readyToPound;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -69,8 +74,10 @@ public class PlayerBehavior : MonoBehaviour
 
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
         
-        if (grounded)
+        if (grounded){
             rb.drag = groundDrag;
+            readyToPound = true;
+        }
         else
             rb.drag = airDrag;
     }
@@ -88,6 +95,14 @@ public class PlayerBehavior : MonoBehaviour
         }
 
          jetpack();
+
+        
+        if(Input.GetKey(poundKey) && readyToPound && !grounded)
+        {
+            readyToPound = false;
+            Pound();
+            
+        }
         
     }
 
@@ -134,6 +149,13 @@ public class PlayerBehavior : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    void Pound()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        rb.AddForce(-transform.up * poundSpeed, ForceMode.Impulse);
     }
 
     void ResetJump()
