@@ -25,6 +25,7 @@ public class JetPackBar : MonoBehaviour
         GetCurrentFill();
     }
 
+
     void GetCurrentFill()
     {
        

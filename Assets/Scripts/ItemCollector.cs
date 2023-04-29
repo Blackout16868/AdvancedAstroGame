@@ -13,6 +13,8 @@ public class ItemCollector : MonoBehaviour
     private bool onShip = false;
     private float playerHeight;
     int parts = 0;
+
+    public static bool hasJetpack = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,11 @@ public class ItemCollector : MonoBehaviour
             Destroy(other.gameObject);
            parts++;
            partsText.text = "Ship Parts: "+parts+"/"+partsList.Length;
+        }
+        else if (other.gameObject.CompareTag("Jetpack"))
+        {
+            Destroy(other.gameObject);
+            hasJetpack = true;
         }
     }
 

@@ -50,6 +50,7 @@ public class PlayerBehavior : MonoBehaviour
     private float currentStartup = 0f;
     public float jetpackAcceleration = 0.5f;
 
+
     public enum MovementState
     {
         walking,
@@ -175,7 +176,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void jetpack(){
 
-        if (curTimeInair<maxAirTimeInFrames&&!grounded&&Input.GetKey(jumpKey)&&currentStartup>=jetPackStartup){
+        if (curTimeInair<maxAirTimeInFrames&&!grounded&&Input.GetKey(jumpKey)&&currentStartup>=jetPackStartup&&ItemCollector.hasJetpack==true){
 
             float upVelocity = rb.velocity.y+jetpackAcceleration;
 
