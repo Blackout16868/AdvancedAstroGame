@@ -185,7 +185,6 @@ public class PlayerBehavior : MonoBehaviour
 
             rb.velocity = new Vector3(rb.velocity.x,upVelocity, rb.velocity.z);
             curTimeInair++;
-            Debug.Log(curTimeInair);
             return;
         }
         if (grounded&curTimeInair>0f)
