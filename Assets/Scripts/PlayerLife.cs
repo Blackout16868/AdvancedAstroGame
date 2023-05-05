@@ -9,7 +9,7 @@ public class PlayerLife : MonoBehaviour
     public float maxHealth = 100f;
     private float curHealth;
     bool dead = false;
-
+    [SerializeField] GameObject deathUI;
  private void Start() {
         curHealth = maxHealth;
     }
@@ -33,6 +33,7 @@ public class PlayerLife : MonoBehaviour
 
     public void die(){
         GetComponent<PlayerBehavior>().enabled = false;
+        deathUI.SetActive(true);
         dead = true;
         Invoke(nameof(reloadLevel),1.3f);
     }
