@@ -26,7 +26,7 @@ public class PlayerLife : MonoBehaviour
 ;
        if (collision.gameObject.CompareTag("EnemyBody")){ 
             float damage = collision.gameObject.GetComponent<EnemyDamage>().getDamage();
-           curHealth -= damage;
+           takeDamage(damage);
            FindObjectOfType<AudioManager>().Play("Hurt");
          }
     }
@@ -49,6 +49,10 @@ public class PlayerLife : MonoBehaviour
     public float getMaxHealth()
     {
         return maxHealth;
+    }
+
+    public void takeDamage(float attackDamage){
+            curHealth -= attackDamage;
     }
 
 }
