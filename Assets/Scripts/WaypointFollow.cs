@@ -2,31 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyWaypointFollow : MonoBehaviour
+public class WaypointFollow : MonoBehaviour
 {
     [SerializeField] GameObject[] waypoints;
-    [SerializeField] LayerMask player;
-    [SerializeField] Transform center;
-    [SerializeField] float vision = 100f;
-     int currentWaypointIndex = 0;
     [SerializeField] float speed = 1f;
-    [SerializeField] Transform playerPos;
+    int currentWaypointIndex = 0;
 
-
- private void Start() {
-    
-    }
+    // Update is called once per frame
     void Update()
     {
-    
-        if (playerNear())
-        {
-            
-            
-             transform.position = Vector3.MoveTowards(transform.position,playerPos.position, speed * Time.deltaTime);
-             return;
-        }
-
         if (Vector3.Distance(transform.position,waypoints[currentWaypointIndex].transform.position) < .1f)
         {
             currentWaypointIndex++;
@@ -38,9 +22,5 @@ public class EnemyWaypointFollow : MonoBehaviour
 
 
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, speed * Time.deltaTime);
-    }
-
-    public bool playerNear(){
-        return Physics.CheckSphere(center.position, vision, player);
     }
 }
