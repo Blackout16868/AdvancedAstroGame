@@ -10,6 +10,7 @@ public class ItemCollector : MonoBehaviour
     [SerializeField] GameObject[] partsList;
     [SerializeField] LayerMask ship;
     [SerializeField] GameObject continueUi;
+    [SerializeField] GameObject jetpackBar;
     private bool onShip = false;
     private float playerHeight;
     int parts = 0;
@@ -20,6 +21,7 @@ public class ItemCollector : MonoBehaviour
     {
       partsText.text = "Ship Parts: "+parts+"/"+partsList.Length;   
       playerHeight = GetComponent<PlayerBehavior>().getPlayerHeight();
+      jetpackBar.SetActive(false);
     }
     private void OnTriggerEnter(Collider other) 
     {
@@ -33,6 +35,7 @@ public class ItemCollector : MonoBehaviour
         {
             Destroy(other.gameObject);
             hasJetpack = true;
+            jetpackBar.SetActive(true);
         }
     }
 

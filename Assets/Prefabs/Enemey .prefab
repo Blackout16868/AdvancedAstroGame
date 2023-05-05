@@ -217,7 +217,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   center: {fileID: 7767495162353302540}
-  vision: 10
+  vision: 20
   speed: 1
   playerPos: {fileID: 0}
 --- !u!114 &1749037395998724391

@@ -20,6 +20,7 @@ public class JetPackBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         current = Player.GetComponent<PlayerBehavior>().getCurAirtime();
         maximum = Player.GetComponent<PlayerBehavior>().getMaxAirtime();
         GetCurrentFill();
