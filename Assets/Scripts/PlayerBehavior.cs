@@ -30,6 +30,7 @@ public class PlayerBehavior : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask ground;
+    public LayerMask ice;
     bool grounded;
 
     public Transform orientation;
@@ -76,13 +77,25 @@ public class PlayerBehavior : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
         
         if (grounded){
-            rb.drag = groundDrag;
             readyToPound = true;
         }
         else
             rb.drag = airDrag;
     }
 
+    bool isGrounded(){
+        if (Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground)){
+            rb.drag = groundDrag;
+            return true;
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ice)){
+            rb.drag = 0.1f;
+            return true;
+        }
+
+        return false;
+    }
     void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
