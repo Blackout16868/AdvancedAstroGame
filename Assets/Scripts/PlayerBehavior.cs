@@ -51,6 +51,8 @@ public class PlayerBehavior : MonoBehaviour
     private float currentStartup = 0f;
     public float jetpackAcceleration = 0.5f;
 
+    private Vector3 prevVelocity;
+
 
     public enum MovementState
     {
@@ -74,25 +76,30 @@ public class PlayerBehavior : MonoBehaviour
         SpeedControl();
         StateHandler();
 
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
+        grounded = isGrounded();
         
         if (grounded){
             readyToPound = true;
         }
         else
             rb.drag = airDrag;
+
+        prevVelocity = rb.velocity;
     }
 
     bool isGrounded(){
+
+
+        if (Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ice)){
+            rb.drag = -groundDrag;
+            return true;
+        }
+
         if (Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground)){
             rb.drag = groundDrag;
             return true;
         }
 
-        if (Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ice)){
-            rb.drag = 0.1f;
-            return true;
-        }
 
         return false;
     }
@@ -140,7 +147,7 @@ public class PlayerBehavior : MonoBehaviour
     void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
+        Debug.Log("Direction:"+rb.velocity);
         if(grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         else if(!grounded)
