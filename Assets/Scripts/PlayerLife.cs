@@ -27,7 +27,7 @@ public class PlayerLife : MonoBehaviour
        if (collision.gameObject.CompareTag("EnemyBody")){ 
             float damage = collision.gameObject.GetComponent<EnemyDamage>().getDamage();
            takeDamage(damage);
-           FindObjectOfType<AudioManager>().Play("Hurt");
+           
          }
     }
 
@@ -54,6 +54,7 @@ public class PlayerLife : MonoBehaviour
 
     public void takeDamage(float attackDamage){
             curHealth -= attackDamage;
+            FindObjectOfType<AudioManager>().Play("Hurt");
     }
 
 }

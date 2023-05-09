@@ -147,7 +147,6 @@ public class PlayerBehavior : MonoBehaviour
     void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        Debug.Log("Direction:"+rb.velocity);
         if(grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         else if(!grounded)
