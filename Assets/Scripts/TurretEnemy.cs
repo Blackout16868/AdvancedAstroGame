@@ -41,7 +41,7 @@ public class TurretEnemy : MonoBehaviour
 
     public void facePlayer(){
         var lookPos = playerObject.transform.position - transform.position;
-        lookPos.y = 0;
+        //lookPos.y = 0;
         var rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2); 
     }
