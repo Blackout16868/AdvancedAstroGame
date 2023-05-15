@@ -10,8 +10,12 @@ public class PlayerLife : MonoBehaviour
     private float curHealth;
     bool dead = false;
     [SerializeField] GameObject deathUI;
+    private float healcoolDown = 300f;
+    private float healtimer;
+
  private void Start() {
         curHealth = maxHealth;
+        healtimer = healcoolDown;
     }
 
     private void Update() {
@@ -57,4 +61,15 @@ public class PlayerLife : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Hurt");
     }
 
+    public void heal(float healthAmount){
+        if (healtimer <= 0f){
+        curHealth += healthAmount;
+        if (curHealth>maxHealth){
+            curHealth=maxHealth;
+        }
+        healtimer = healcoolDown;
+        return;
+        }
+        healtimer--;
+    }
 }

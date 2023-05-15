@@ -16,7 +16,7 @@ public class TurretEnemy : MonoBehaviour
 
     // Update is called once per frame
  private void Start() {
-        timer = coolDown;
+        timer = 300f;
         playerSpot = playerObject.GetComponent<Transform>();
     }
 
@@ -41,6 +41,9 @@ public class TurretEnemy : MonoBehaviour
 
     public void facePlayer(){
         var lookPos = playerObject.transform.position - transform.position;
+        if (lookPos.y<-30){
+            lookPos.y = -30;
+        }
         //lookPos.y = 0;
         var rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2); 

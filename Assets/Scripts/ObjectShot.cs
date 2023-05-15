@@ -14,8 +14,15 @@ private void OnCollisionEnter(Collision collision)
       float weaponDamage = weapon.GetComponent<Weapon>().getDamage();
         health -= weaponDamage;
          if (health <= 0f){
+          if (GetComponent<BossEnemy>().isBoss()){
+            GetComponent<BossEnemy>().spawnThing();
+          }
     Destroy( transform.parent.gameObject);
   }
      }
+  }
+
+  public float gethealth(){
+    return health;
   }
 }

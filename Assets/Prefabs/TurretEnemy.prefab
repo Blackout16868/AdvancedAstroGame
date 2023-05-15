@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 3176889496363520043}
-  bulletPrefab: {fileID: 6414155897766798497, guid: 208fc00e46376ce4fb71cadf402c6b38, type: 3}
+  bulletPrefab: {fileID: 6414155897766798497, guid: 45621cdfede668347bc085ae571ff548, type: 3}
   playerObject: {fileID: 0}
   player:
     serializedVersion: 2
