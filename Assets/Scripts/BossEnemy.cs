@@ -6,6 +6,7 @@ public class BossEnemy : MonoBehaviour
 {
     public GameObject spawn;
     public GameObject self;
+    public bool isABoss = false;
 
     private void Start() {
         spawn.SetActive(false);
@@ -15,10 +16,6 @@ public class BossEnemy : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Bowder");
             spawn.SetActive(true);
         
-    }
-
-    public bool isBoss(){
-        return true;
     }
 
 }
