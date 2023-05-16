@@ -15,7 +15,6 @@ public class BossEnemy : MonoBehaviour
     public  void spawnThing(){
             FindObjectOfType<AudioManager>().Play("Bowder");
             spawn.SetActive(true);
-        
     }
 
 }
