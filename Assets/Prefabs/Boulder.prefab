@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5304546046853234020}
   - component: {fileID: 2083610673321312938}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: Boulder
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 6414155897766798497}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8714779737241832771}
   m_Father: {fileID: 0}
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4c2829b17bc22774c876a0475c4c5c92, type: 2}
+  - {fileID: 2100000, guid: bac6943e7c88fd6409d86446f915863b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,10 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08af5affa6f08364da0433323884de05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeDuration: 1
-  speed: 50
-  damageToPlayer: 10
-  destructible: 1
+  lifeDuration: 40
+  speed: 20
+  damageToPlayer: 1000
 --- !u!54 &5304546046853234020
 Rigidbody:
   m_ObjectHideFlags: 0

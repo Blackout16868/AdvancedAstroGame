@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 public float lifeDuration = 20f;
 public float speed = 0.7f;
 public float damageToPlayer = 10f;
+public bool destructible;
 private float lifeTimer;
 // Use this for initialization
   void Start () {
@@ -28,7 +29,9 @@ private float lifeTimer;
     if (collision.gameObject.CompareTag("Player")){
       collision.gameObject.GetComponent<PlayerLife>().takeDamage(damageToPlayer);
     }
+    if (destructible){
     Destroy(gameObject);
+    }
     
   }
 }

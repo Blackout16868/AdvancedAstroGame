@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeDuration: 1
   speed: 50
+  damageToPlayer: 10
+  destructible: 1
 --- !u!54 &5304546046853234020
 Rigidbody:
   m_ObjectHideFlags: 0
