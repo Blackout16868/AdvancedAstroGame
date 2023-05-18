@@ -61,7 +61,7 @@ public class Weapon : MonoBehaviour
     }
 
     public void fire(){
-         GameObject bulletObject = Instantiate (bulletPrefab);
+        GameObject bulletObject = Instantiate (bulletPrefab);
         bulletObject.transform.position = playerWeapon.transform.position+playerCamera.transform.forward;
         bulletObject.transform.forward = playerCamera.transform.forward;
 
