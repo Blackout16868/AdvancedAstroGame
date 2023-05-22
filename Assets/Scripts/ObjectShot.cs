@@ -22,6 +22,9 @@ private void OnCollisionEnter(Collision collision)
           if (TryGetComponent<BossEnemy>(out BossEnemy boss)){
             boss.spawnThing();
           }
+          if (TryGetComponent<HasHB>(out HasHB hb)){
+            hb.turnOff();
+          }
     Destroy( transform.parent.gameObject);
   }
      }
