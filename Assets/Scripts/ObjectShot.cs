@@ -6,6 +6,11 @@ public class ObjectShot : MonoBehaviour
 {
  public GameObject weapon; 
   public float health = 10f;
+  private float maxHealth;
+
+  private void Start() {
+    maxHealth = health;
+    }
   
 private void OnCollisionEnter(Collision collision)
   {
@@ -24,5 +29,9 @@ private void OnCollisionEnter(Collision collision)
 
   public float gethealth(){
     return health;
+  }
+
+  public float getMaxHealth(){
+    return maxHealth;
   }
 }

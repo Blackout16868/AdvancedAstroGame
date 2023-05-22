@@ -22,7 +22,6 @@ public class EnemyWaypointFollow : MonoBehaviour
         if (playerNear())
         {
             
-            
              transform.position = Vector3.MoveTowards(transform.position,playerPos.position, speed * Time.deltaTime);
              return;
         }
