@@ -22,6 +22,7 @@ public class ItemCollector : MonoBehaviour
       partsText.text = "Ship Parts: "+parts+"/"+partsList.Length;   
       playerHeight = GetComponent<PlayerBehavior>().getPlayerHeight();
       jetpackBar.SetActive(false);
+      hasJetpack = false;
     }
     private void OnTriggerEnter(Collider other) 
     {
