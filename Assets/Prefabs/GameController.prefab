@@ -568,6 +568,7 @@ MonoBehaviour:
   state: 0
   maxAirTimeInFrames: 450
   jetpackAcceleration: 0.5
+  otherClip: {fileID: 0}
 --- !u!114 &5265462558021885560
 MonoBehaviour:
   m_ObjectHideFlags: 0

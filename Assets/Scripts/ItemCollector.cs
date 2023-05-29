@@ -11,6 +11,7 @@ public class ItemCollector : MonoBehaviour
     [SerializeField] LayerMask ship;
     [SerializeField] GameObject continueUi;
     [SerializeField] GameObject jetpackBar;
+    private bool partsVoice = true;
     private bool onShip = false;
     private float playerHeight;
     int parts = 0;
@@ -31,12 +32,14 @@ public class ItemCollector : MonoBehaviour
             Destroy(other.gameObject);
            parts++;
            partsText.text = "Ship Parts: "+parts+"/"+partsList.Length;
+           FindObjectOfType<AudioManager>().Play("pickup");
         }
         else if (other.gameObject.CompareTag("Jetpack"))
         {
             Destroy(other.gameObject);
             hasJetpack = true;
             jetpackBar.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("pickup");
         }
     }
 
@@ -48,6 +51,11 @@ public class ItemCollector : MonoBehaviour
         }else if (!inShip()&&onShip)
         {
             onShip = false;
+        }
+
+        if (hasAllParts()&&partsVoice){
+            partsVoice = false;
+            FindObjectOfType<AudioManager>().Play("hasParts");
         }
     }
 

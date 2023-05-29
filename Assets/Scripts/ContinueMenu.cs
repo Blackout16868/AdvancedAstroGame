@@ -15,6 +15,8 @@ public class ContinueMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0f;
+        AudioListener.pause = true;
+        PauseMenu.GamePaused = true;
     }
 
     public void nextLevel(){
@@ -30,5 +32,7 @@ public class ContinueMenu : MonoBehaviour
          continueUi.SetActive(false);               
          Cursor.lockState = CursorLockMode.Locked;
          Cursor.visible = false;
+         AudioListener.pause = false;
+         PauseMenu.GamePaused = false;
     }
 }

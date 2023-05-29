@@ -36,10 +36,11 @@ public class PlayerLife : MonoBehaviour
     }
 
     public void die(){
+        FindObjectOfType<AudioManager>().Play("death");
         GetComponent<PlayerBehavior>().enabled = false;
         deathUI.SetActive(true);
         dead = true;
-        Invoke(nameof(reloadLevel),1.3f);
+        Invoke(nameof(reloadLevel),6f);
     }
     
     public void reloadLevel(){

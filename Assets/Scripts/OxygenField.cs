@@ -27,6 +27,7 @@ public class OxygenField : MonoBehaviour
             timer = 0f;
             }
             lowOxygen.text ="WARNING LOW OXYGEN";
+
         }else {
              lowOxygen.text ="";
              playerObject.GetComponent<PlayerLife>().heal(5f);

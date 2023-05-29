@@ -53,6 +53,9 @@ public class PlayerBehavior : MonoBehaviour
 
     private Vector3 prevVelocity;
 
+    public AudioClip otherClip;
+    AudioSource audioSource;
+
 
     public enum MovementState
     {
@@ -68,6 +71,8 @@ public class PlayerBehavior : MonoBehaviour
 
         readyToJump = true;
         maxAirVelocity = jumpForce;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -85,6 +90,12 @@ public class PlayerBehavior : MonoBehaviour
             rb.drag = airDrag;
 
         prevVelocity = rb.velocity;
+
+        if (!audioSource.isPlaying&&curTimeInair<maxAirTimeInFrames&&!grounded&&Input.GetKey(jumpKey)&&currentStartup>=jetPackStartup&&ItemCollector.hasJetpack==true)
+        {
+            audioSource.clip = otherClip;
+            audioSource.Play();
+        }
     }
 
     bool isGrounded(){
@@ -205,6 +216,7 @@ public class PlayerBehavior : MonoBehaviour
 
             rb.velocity = new Vector3(rb.velocity.x,upVelocity, rb.velocity.z);
             curTimeInair++;
+
             return;
         }
         if (grounded&curTimeInair>0f)
