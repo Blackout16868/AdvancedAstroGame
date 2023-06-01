@@ -86,6 +86,7 @@ public class Weapon : MonoBehaviour
           if (run){
           timer3 = overHeatCoolDown;
           run = false;
+          FindObjectOfType<AudioManager>().Play("overheat");
           return;
         }
           

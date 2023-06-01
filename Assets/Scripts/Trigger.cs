@@ -19,4 +19,15 @@ public class Trigger : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (!String.IsNullOrEmpty(tagFilter) && !collision.gameObject.CompareTag(tagFilter)) return;
+        
+        FindObjectOfType<AudioManager>().Play(soundEffect);
+        FindObjectOfType<AudioManager>().Stop(soundToStop);
+        if (destroyOnEnter){
+            Destroy(gameObject);
+        }
+    }
 }
