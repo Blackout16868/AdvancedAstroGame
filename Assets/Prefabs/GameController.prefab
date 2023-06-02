@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6494603353352507751}
   - component: {fileID: 5971290131937081121}
   - component: {fileID: 949687936861137102}
-  - component: {fileID: 4336905250180968003}
   m_Layer: 0
   m_Name: Pointer
   m_TagString: Untagged
@@ -99,28 +98,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &4336905250180968003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3340582604234030280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ab2b545cc34ee419e4ba7a110f03e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponText: {fileID: 0}
-  bulletPrefab: {fileID: 6414155897766798497, guid: 208fc00e46376ce4fb71cadf402c6b38, type: 3}
-  playerCamera: {fileID: 3524477721156033155}
-  playerWeapon: {fileID: 3340582604234030280}
-  overHeatCoolDown: 100
-  damage: 5
-  coolDown: 0.66
-  fireSpeed: 0
-  maxTemp: 100
-  curTemp: 0
 --- !u!1 &3524477719615513250
 GameObject:
   m_ObjectHideFlags: 0

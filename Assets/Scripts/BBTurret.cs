@@ -53,6 +53,9 @@ public class BBTurret : MonoBehaviour
         GameObject bulletObject = Instantiate (bulletPrefab);
         bulletObject.transform.position = transform.position+transform.forward;
         bulletObject.transform.forward = transform.forward;
-        FindObjectOfType<AudioManager>().Play("LaserPew");
+        float rand = Random.Range(0f,3f);
+        if (rand > 2f){
+            FindObjectOfType<AudioManager>().Play("LaserPew");
+        }
     }
 }
